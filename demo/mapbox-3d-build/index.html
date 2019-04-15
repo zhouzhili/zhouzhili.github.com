@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Display buildings in 3D</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css" rel="stylesheet" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      mapboxgl.accessToken =
+        'pk.eyJ1IjoienpsMTI0IiwiYSI6ImNqMmVwMHJycTA2czQzMnFyYmZidG1nMXAifQ.6xR7FM8nAriLN2Z9b0K11w'
+      var map = new mapboxgl.Map({
+        style: 'mapbox://styles/mapbox/light-v10',
+        center: [114.4, 30.478],
+        zoom: 16,
+        pitch: 45,
+        bearing: 300,
+        attributionControl: true,
+        container: 'map'
+      })
+
+      // 加载geojson
+      map.on('load', function() {
+        fetch('./data.geojson')
+          .then(resp => resp.json())
+          .then(data => {
+            // 加载图片
+            map.loadImage('./texture.jpg', (err, image) => {
+              map.addImage('texture', image)
+
+              map.addSource('geoData', {
+                type: 'geojson',
+                data,
+                generateId: true
+              })
+
+              // 建筑物贴图
+              map.addLayer({
+                id: '3d-build',
+                source: 'geoData',
+                type: 'fill-extrusion',
+                filter: ['==', 'building', 'yes'],
+                minzoom: 15,
+                paint: {
+                  'fill-extrusion-height': ['to-number', ['get', 'height']],
+                  'fill-extrusion-base': 0,
+                  'fill-extrusion-opacity': 1,
+                  'fill-extrusion-pattern': 'texture'
+                }
+              })
+
+              // 建筑物顶部
+              map.addLayer({
+                id: 'buildTop',
+                source: 'geoData',
+                type: 'fill-extrusion',
+                filter: ['==', 'building', 'yes'],
+                minzoom: 15,
+                paint: {
+                  'fill-extrusion-color': [
+                    'case',
+                    ['boolean', ['feature-state', 'hover'], true],
+                    '#aaa',
+                    'red'
+                  ],
+                  // 屋顶
+                  'fill-extrusion-height': ['to-number', ['get', 'height']],
+                  'fill-extrusion-base': ['to-number', ['get', 'height']],
+                  'fill-extrusion-opacity': 1
+                }
+              })
+
+              // 点击事件
+              let hoverId = null
+              map.on('click', '3d-build', e => {
+                if (e.features.length > 0) {
+                  if (!hoverId) {
+                    hoverId = e.features[0].id
+                    map.setFeatureState({ source: 'geoData', id: hoverId }, { hover: false })
+                  } else {
+                    map.setFeatureState({ source: 'geoData', id: hoverId }, { hover: true })
+                    hoverId = null
+                  }
+                }
+              })
+            })
+          })
+      })
+    </script>
+  </body>
+</html>
