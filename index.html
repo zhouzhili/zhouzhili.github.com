@@ -4,30 +4,50 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="description" content="Zhouzhili.GitHub.com : my github pages" />
-    <link rel="stylesheet" href="stylesheets/stylesheet.css" />
+    <link rel="stylesheet" href="src/css/index.css" />
     <link rel="shortcut icon" href="/favicon.ico" />
-    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
-    <script src="javascripts/main.js"></script>
     <base target="_blank" />
-    <title>放飞自我</title>
+    <title>zhouzhili</title>
   </head>
   <body>
-    <div class="headerCon">
+    <div>
       <header class="header">
         <a class="github-link" href="https://github.com/zhouzhili">
           <span>在GitHub上查看更多</span>
-          <img src="./images/blacktocat.png" />
+          <img src="./src/images/blacktocat.png" />
         </a>
       </header>
-      <div>
-        <ol class="list">
-          <li>
-            <a href="./demo/mapbox-3d-build/index.html">mapbox建筑物拉升并贴图</a>
-          </li>
-          <li>
-            <a href="./wechatformat/index.html">markdown格式转微信文章</a>
-          </li>
-        </ol>
+      <div class="list">
+        <div class="item">
+          <a href="./demo/mapbox-3d-build/index.html">
+            <div class="title">mapbox建筑物拉升并贴图</div>
+            <div class="desc">
+              使用mapbox加载geojson数据，并将建筑物拉升，贴上纹理图片，使建筑物更加美观
+            </div>
+          </a>
+        </div>
+
+        <div class="item">
+          <a href="./wechatformat/index.html">
+            <div class="title">markdown格式转微信文章</div>
+            <div class="desc">
+              由于微信公众号文章糟糕的编辑器，我研发了一款将markdown文档转换为微信支持的文章格式，
+              支持一键复制、69种代码高亮风格以及样式的自定义，解放你的时间。
+            </div>
+          </a>
+        </div>
+
+        <div class="item">
+          <a href="./dist_frag/index.html">
+            <div class="title">着色器绘图</div>
+            <div class="desc">
+              使用webGL，在fragment shader中编写绘图脚本，包括2D距离场、动画、图案、随机、纹理等示例
+            </div>
+          </a>
+          <div class="footer">
+            <a href="https://github.com/zhouzhili/webGL-webGIS-Learning">代码仓库地址</a>
+          </div>
+        </div>
       </div>
     </div>
   </body>
