@@ -77,9 +77,9 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 
     // 博主信息 (显示在首页侧边栏)
     blogger: {
-      avatar: 'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200103123203.jpg',
+      avatar: 'https://cdn.jsdelivr.net/gh/zhouzhili/cdn@1.0/img/avatar.jpg',
       name: 'Zhili',
-      slogan: '前端界的小学生',
+      slogan: '转型中的前端老兵',
     },
 
     // 社交图标 (显示于博主信息栏和页脚栏。内置图标：https://doc.xugaoyi.com/pages/a20ce8/#social)
