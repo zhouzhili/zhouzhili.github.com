@@ -35,22 +35,23 @@ jobs: # 工作流
           npm run build
           cd docs/.vuepress/dist
           cd -
-      - name: Deploy 🚀
+      - name: Deploy to gh-page 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.5 # 作用：将项目构建和部署到github。 https://github.com/JamesIves/github-pages-deploy-action
         with:
           branch: gh-page # The branch the action should deploy to.
           folder: docs/.vuepress/dist # The folder the action should deploy.
+      - name: run baiduPush.sh # 运行百度推送
+        run: npm run baiduPush
 
       - name: Deploy to server
-        uses: AEnterprise/rsync-deploy@v1.0 # 使用别人包装好的步骤镜像
+        uses: easingthemes/ssh-deploy@main # 使用别人包装好的步骤镜像
         env: 
-          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }} # 引用配置，SSH私钥
-          ARGS: "-e -c -r --delete" # rsync参数，排除.pyc文件
-          SERVER_PORT: "22" # SSH端口
-          FOLDER: docs/.vuepress/dist # 要推送的文件夹，路径相对于代码仓库的根目录
-          SERVER_IP: ${{ secrets.SSH_HOST }} # 引用配置，服务器的host名（IP或者域名domain.com）
-          USERNAME: ${{ secrets.SSH_USERNAME }} # 引用配置，服务器登录名
-          SERVER_DESTINATION: ${{ secrets.SERVER_DESTINATION }} # 部署到目标文件夹
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }} # 引用配置，SSH私钥
+          ARGS: "-rltgoDzvO --delete" # rsync参数，
+          SOURCE: docs/.vuepress/dist/ # 要推送的文件夹，路径相对于代码仓库的根目录
+          REMOTE_HOST: ${{ secrets.SSH_HOST }} # 引用配置，服务器的host名（IP或者域名domain.com）
+          REMOTE_USER: ${{ secrets.SSH_USERNAME }} # 引用配置，服务器登录名
+          TARGET: ${{ secrets.SERVER_DESTINATION }} # 部署到目标文件夹
 
 
       # - name: Sync to Gitee
