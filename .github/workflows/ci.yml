@@ -39,7 +39,9 @@ jobs: # 工作流
         uses: JamesIves/github-pages-deploy-action@4.1.5 # 作用：将项目构建和部署到github。 https://github.com/JamesIves/github-pages-deploy-action
         with:
           branch: gh-page # The branch the action should deploy to.
+          target-folder: blog #部署到gh-page的blog目录下
           folder: docs/.vuepress/dist # The folder the action should deploy.
+
       - name: run baiduPush.sh # 运行百度推送
         run: npm run baiduPush
 
