@@ -20,19 +20,7 @@ import { VdoingThemeConfig } from 'vuepress-theme-vdoing/types'
  * ②注：windowLB 和 windowRB：1.展示区块最大宽高200px*400px。2.请给自定义元素定一个不超过200px*400px的宽高。3.在屏幕宽度小于960px时无论如何都不会显示。
  */
 const htmlModule: VdoingThemeConfig['htmlModules'] = {
-  homeSidebarB:
-    `<div style="padding: 0.95rem">
-    <p style="
-      color: var(--textColor);
-      opacity: 0.9;
-      font-size: 20px;
-      font-weight: bold;
-      margin: 0 0 8px 0;
-    ">公众号</p>
-    <img src="https://open.weixin.qq.com/qr/code?username=gh_831a8363d082"  style="width:100%;" />
-    关注公众号，获取更多学习信息
-    </p>
-    </div>`,
+  // homeSidebarB: ''
   // `<!-- 纵向自适应 -->
   // <ins class="adsbygoogle"
   //     style="display:block;padding: 0.95rem;"
