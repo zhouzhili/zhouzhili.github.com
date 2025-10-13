@@ -1,24 +1,389 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Zhili&#39;s blog</title>
-    <meta name="generator" content="VuePress 1.9.5" />
-    <link rel="icon" href="/blog/img/favicon.ico" />
-    <meta
-      name="description"
-      content="web前端技术博客,专注web前端学习与总结。JavaScript,js,ES6,TypeScript,vue,React,python,css3,html5,Node,git,github等技术文章。"
-    />
-    <meta
-      name="keywords"
-      content="前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown"
-    />
-    <meta name="theme-color" content="#11a8cd" />
-  </head>
-  <body class="theme-mode-light">
-    <script>
-      window.location.replace('https://zhouzhili.github.io/blog/')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快抖工具箱 - 专业下载录制工具 | 快抖下载器、直播录制助手、QQ相册下载器</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="快抖工具箱提供快抖下载器、快抖直播录制助手、QQ相册下载器三款专业工具。支持抖音、快手、小红书等多平台去水印下载，自动直播录制，QQ空间相册批量下载。">
+    <meta name="keywords" content="快抖下载器,快抖直播录制助手,QQ相册下载器,抖音下载,快手下载,小红书下载,直播录制,去水印下载,快抖工具箱">
+    <meta name="author" content="快抖工具箱">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="zh-CN">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://blog.aitoolwang.com">
+    <meta property="og:title" content="快抖工具箱 - 专业下载录制工具">
+    <meta property="og:description" content="提供快抖下载器、快抖直播录制助手、QQ相册下载器三款专业工具，支持多平台内容下载和录制。">
+    <meta property="og:site_name" content="快抖工具箱">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://blog.aitoolwang.com">
+    <meta property="twitter:title" content="快抖工具箱 - 专业下载录制工具">
+    <meta property="twitter:description" content="提供快抖下载器、快抖直播录制助手、QQ相册下载器三款专业工具，支持多平台内容下载和录制。">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://blog.aitoolwang.com">
+    
+    <!-- JSON-LD 结构化数据 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "快抖工具箱",
+      "description": "专业的下载录制工具集合，提供快抖下载器、快抖直播录制助手、QQ相册下载器三款工具",
+      "url": "https://blog.aitoolwang.com",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Windows 7, Windows 10, Windows 11",
+      "softwareVersion": "3.1.0",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CNY"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "快抖工具箱",
+        "url": "https://blog.aitoolwang.com"
+      },
+      "featureList": [
+        "抖音快手小红书去水印下载",
+        "多平台直播自动录制",
+        "QQ空间相册批量下载"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "快抖工具箱软件产品",
+        "itemListElement": [
+          {
+            "@type": "SoftwareApplication",
+            "name": "快抖下载器",
+            "description": "支持抖音、快手、小红书等多平台去水印下载工具",
+            "url": "https://blog.aitoolwang.com/kd/",
+            "applicationCategory": "DownloadManager"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "快抖直播录制助手",
+            "description": "专业的多平台直播录制工具，支持自动监控录制",
+            "url": "https://blog.aitoolwang.com/live/",
+            "applicationCategory": "RecordingApplication"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "QQ相册下载器",
+            "description": "专业的QQ空间相册批量下载工具",
+            "url": "https://blog.aitoolwang.com/qq/",
+            "applicationCategory": "DownloadManager"
+          }
+        ]
+      }
+    }
     </script>
-  </body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .header-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .header-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        main {
+            padding: 80px 0;
+        }
+
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .software-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #667eea;
+        }
+
+        .software-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .software-card:nth-child(2) {
+            border-top-color: #764ba2;
+        }
+
+        .software-card:nth-child(3) {
+            border-top-color: #f093fb;
+        }
+
+        .software-card header {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            margin: -40px -40px 30px -40px;
+            padding: 30px 40px 25px 40px;
+            border-radius: 12px 12px 0 0;
+            border-bottom: 2px solid rgba(102, 126, 234, 0.1);
+            position: relative;
+        }
+
+        .software-card:nth-child(1) header {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(102, 126, 234, 0.05) 100%);
+            border-bottom-color: rgba(102, 126, 234, 0.2);
+        }
+
+        .software-card:nth-child(2) header {
+            background: linear-gradient(135deg, rgba(118, 75, 162, 0.1) 0%, rgba(118, 75, 162, 0.05) 100%);
+            border-bottom-color: rgba(118, 75, 162, 0.2);
+        }
+
+        .software-card:nth-child(3) header {
+            background: linear-gradient(135deg, rgba(240, 147, 251, 0.1) 0%, rgba(240, 147, 251, 0.05) 100%);
+            border-bottom-color: rgba(240, 147, 251, 0.2);
+        }
+
+        .software-card h3 {
+            color: #2c3e50;
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .software-card h3:before {
+            content: "";
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+            margin-right: 12px;
+        }
+
+        .software-card:nth-child(1) h3:before {
+            background: linear-gradient(135deg, #667eea 0%, #667eea 100%);
+        }
+
+        .software-card:nth-child(2) h3:before {
+            background: linear-gradient(135deg, #764ba2 0%, #764ba2 100%);
+        }
+
+        .software-card:nth-child(3) h3:before {
+            background: linear-gradient(135deg, #f093fb 0%, #f093fb 100%);
+        }
+
+        .software-card p {
+            margin-bottom: 25px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            color: #555;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .software-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .software-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header role="banner" itemscope itemtype="https://schema.org/SoftwareApplication">
+        <div class="container">
+            <h1 itemprop="name">快抖工具箱 - 短视频下载器、录制工具、QQ相册备份</h1>
+            <p itemprop="description">提供快抖下载器、直播录制助手、QQ相册下载器三款专业工具</p>
+            <a href="https://blog.aitoolwang.com" class="header-link" target="_blank" rel="noopener" itemprop="url" aria-label="访问快抖工具箱官网">访问官网</a>
+        </div>
+    </header>
+
+    <main role="main" id="main-content">
+        <div class="container">
+            <section aria-labelledby="software-section-title">
+                <h2 id="software-section-title" class="visually-hidden">软件产品介绍</h2>
+                <div class="software-grid">
+                <article class="software-card" itemscope itemtype="https://schema.org/SoftwareApplication">
+                    <header>
+                        <h3 itemprop="name">快抖下载器</h3>
+                    </header>
+                    <p itemprop="description">支持抖音、快手、小红书等多平台去水印下载工具，让内容保存更便捷。</p>
+                    <ul class="feature-list" itemprop="featureList">
+                        <li>支持抖音、快手、小红书多平台</li>
+                        <li>一键去水印批量下载</li>
+                        <li>支持视频、图文、live图下载</li>
+                        <li>个性化下载配置</li>
+                        <li>保存位置自由设定</li>
+                    </ul>
+                    <a href="https://blog.aitoolwang.com/kd/" class="btn" target="_blank" rel="noopener" itemprop="url" aria-label="访问快抖下载器官网页面">立即使用</a>
+                    <meta itemprop="applicationCategory" content="DownloadManager">
+                    <meta itemprop="operatingSystem" content="Windows">
+                </article>
+
+                <article class="software-card" itemscope itemtype="https://schema.org/SoftwareApplication">
+                    <header>
+                        <h3 itemprop="name">快抖直播录制助手</h3>
+                    </header>
+                    <p itemprop="description">专业的多平台直播录制工具，支持自动监控录制，无人值守操作。</p>
+                    <ul class="feature-list" itemprop="featureList">
+                        <li>支持抖音、快手、斗鱼、虎牙等平台</li>
+                        <li>无人值守自动录制</li>
+                        <li>原画质录制保存</li>
+                        <li>手机远程控制功能</li>
+                        <li>直播源获取转播功能</li>
+                    </ul>
+                    <a href="https://blog.aitoolwang.com/live/" class="btn" target="_blank" rel="noopener" itemprop="url" aria-label="访问快抖直播录制助手官网页面">立即使用</a>
+                    <meta itemprop="applicationCategory" content="RecordingApplication">
+                    <meta itemprop="operatingSystem" content="Windows">
+                </article>
+
+                <article class="software-card" itemscope itemtype="https://schema.org/SoftwareApplication">
+                    <header>
+                        <h3 itemprop="name">QQ相册下载器</h3>
+                    </header>
+                    <p itemprop="description">专业的QQ空间相册批量下载工具，轻松备份珍贵的回忆照片。</p>
+                    <ul class="feature-list" itemprop="featureList">
+                        <li>一键批量下载QQ空间相册</li>
+                        <li>原图下载无需黄钻</li>
+                        <li>保留照片拍摄时间</li>
+                        <li>支持私密相册下载</li>
+                        <li>操作简单三步完成</li>
+                    </ul>
+                    <a href="https://blog.aitoolwang.com/qq/" class="btn" target="_blank" rel="noopener" itemprop="url" aria-label="访问QQ相册下载器官网页面">立即使用</a>
+                    <meta itemprop="applicationCategory" content="DownloadManager">
+                    <meta itemprop="operatingSystem" content="Windows">
+                </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer role="contentinfo" itemscope itemtype="https://schema.org/Organization">
+        <div class="container">
+            <p>
+                <span itemprop="copyrightYear">&copy; 2025</span> 
+                <span itemprop="name">快抖工具箱</span>. 
+                <span itemprop="description">专注于为用户提供优质的下载录制工具</span>
+            </p>
+        </div>
+    </footer>
+</body>
 </html>
